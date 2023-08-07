@@ -20,7 +20,7 @@ public class ArchivedApplication {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "new_application_id", nullable = false)

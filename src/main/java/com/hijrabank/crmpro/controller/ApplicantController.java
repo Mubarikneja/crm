@@ -3,12 +3,13 @@ package com.hijrabank.crmpro.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.web.bind.annotation.*;
 
 
 import com.hijrabank.crmpro.entity.Applicant;
 import com.hijrabank.crmpro.service.ApplicantService;
+
 
 @RestController
 @RequestMapping("/crm")
@@ -37,14 +38,16 @@ public class ApplicantController {
         return applicantService.getApplicant(id);
     }
 
+    @GetMapping("applicants/name/{name}")
+    public Applicant getApplicantByName(@PathVariable("name") String name){
+        return applicantService.getApplicantByName(name);
+    }
+
     @DeleteMapping("/applicants/{id}")
     public void delApplicant(@PathVariable("id") Long id){
         applicantService.delApplicant(id);
     }
 
-    @PutMapping("/applicant/{id}")
-    public void updApplicant(@PathVariable("id") Long id, @RequestBody Applicant applicant){
-        applicantService.updApplicant(id, applicant);
-    }
+   
     
 }

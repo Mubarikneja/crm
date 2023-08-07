@@ -7,5 +7,7 @@ import com.hijrabank.crmpro.entity.Applicant;
 
 @Repository
 public interface ApplicantRepository extends JpaRepository<Applicant, Long> {
+
+    public Applicant findByfullNameIgnoreCase(String fullName);
     
 }
