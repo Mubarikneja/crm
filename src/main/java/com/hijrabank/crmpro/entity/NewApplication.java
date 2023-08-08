@@ -68,15 +68,15 @@ public class NewApplication {
     private String assignedOfficer;
 
     public enum PriorityLevel {
+        IMM,
         NOR,
-        URG,
-        IMM
+        URG
     }
     
     public enum ApplicationStatus {
+        Approved,
         New,
         Progress,
-        Approved,
         Returned
     }
 

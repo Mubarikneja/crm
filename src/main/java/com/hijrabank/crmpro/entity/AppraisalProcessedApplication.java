@@ -12,11 +12,11 @@ public class AppraisalProcessedApplication {
     }
 
 
-    public AppraisalProcessedApplication(Long id, Long newApplicationId, String roleOfAssignment,
+    public AppraisalProcessedApplication(Long id, Long newApplicationId, String processedBy,
             ApplicationProgress progressOfApplication) {
         this.id = id;
         this.newApplicationId = newApplicationId;
-        this.roleOfAssignment = roleOfAssignment;
+        this.processedBy = processedBy;
         this.progressOfApplication = progressOfApplication;
     }
 
@@ -28,8 +28,8 @@ public class AppraisalProcessedApplication {
     @Column(name = "new_application_id", nullable = false)
     private Long newApplicationId;
 
-    @Column(name = "role_of_assignment", nullable = false)
-    private String roleOfAssignment;
+    @Column(name = "processed_by", nullable = false)
+    private String processedBy;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "progress_of_application", nullable = false)
@@ -37,9 +37,10 @@ public class AppraisalProcessedApplication {
 
 
     public enum ApplicationProgress {
-        Received,
+        Approved,
         Checking,
-        Approved
+        Received
+        
     }
 
 
@@ -63,13 +64,13 @@ public class AppraisalProcessedApplication {
     }
 
 
-    public String getRoleOfAssignment() {
-        return roleOfAssignment;
+    public String getprocessedBy() {
+        return processedBy;
     }
 
 
-    public void setRoleOfAssignment(String roleOfAssignment) {
-        this.roleOfAssignment = roleOfAssignment;
+    public void setprocessedBy(String processedBy) {
+        this.processedBy = processedBy;
     }
 
 

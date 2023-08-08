@@ -101,12 +101,9 @@ public class User {
 
 
     public enum UserRole {
-        CRM,
-        APPRAISAL
-    }
-    
-
-    
+        APPRAISAL,
+        CRM
+    }  
 
 }
 
