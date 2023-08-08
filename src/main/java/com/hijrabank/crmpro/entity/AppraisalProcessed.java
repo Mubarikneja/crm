@@ -5,14 +5,14 @@ package com.hijrabank.crmpro.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "appraisal_processed_applications")
-public class AppraisalProcessedApplication {
+@Table(name = "appraisal_processed")
+public class AppraisalProcessed {
 
-    public AppraisalProcessedApplication() {
+    public AppraisalProcessed() {
     }
 
 
-    public AppraisalProcessedApplication(Long id, Long newApplicationId, String processedBy,
+    public AppraisalProcessed(Long id, Long newApplicationId, String processedBy,
             ApplicationProgress progressOfApplication) {
         this.id = id;
         this.newApplicationId = newApplicationId;

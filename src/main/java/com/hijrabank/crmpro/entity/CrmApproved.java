@@ -6,20 +6,23 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "crm_approved_applications")
-public class CrmApprovedApplication {
+@Table(name = "crm_approved")
+public class CrmApproved {
 
-    public CrmApprovedApplication() {
-    }
-
-    public CrmApprovedApplication(Long id, Long newApplicationId, LocalDateTime approvalDate, String approvedBy,
+    public CrmApproved(Long id, Long newApplicationId, String fullName, LocalDateTime approvalDate, String approvedBy,
             BigDecimal recommendedLoanAmount) {
         this.id = id;
         this.newApplicationId = newApplicationId;
+        this.fullName = fullName;
         this.approvalDate = approvalDate;
         this.approvedBy = approvedBy;
         this.recommendedLoanAmount = recommendedLoanAmount;
     }
+
+    public CrmApproved() {
+    }
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +30,9 @@ public class CrmApprovedApplication {
 
     @Column(name = "new_application_id", nullable = false)
     private Long newApplicationId;
+
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Column(name = "approval_date", nullable = false)
     private LocalDateTime approvalDate;
@@ -75,6 +81,14 @@ public class CrmApprovedApplication {
 
     public void setRecommendedLoanAmount(BigDecimal recommendedLoanAmount) {
         this.recommendedLoanAmount = recommendedLoanAmount;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     

@@ -6,27 +6,32 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "crm_processed_applications")
-public class CrmProcessedApplication {
+@Table(name = "crm_processed")
+public class CrmProcessed {
 
-    public CrmProcessedApplication() {
+    public CrmProcessed() {
     }
 
-
-    public CrmProcessedApplication(Long id, Long newApplicationId, LocalDateTime processingDate, String processedBy,
-            ApplicationProcessingStatus processingStatus, String comments) {
+    public CrmProcessed(Long id, String fullName, Long newApplicationId, LocalDateTime processingDate,
+            String processedBy, ApplicationProcessingStatus processingStatus, String comments) {
         this.id = id;
+        this.fullName = fullName;
         this.newApplicationId = newApplicationId;
         this.processingDate = processingDate;
         this.processedBy = processedBy;
         this.processingStatus = processingStatus;
         this.comments = comments;
     }
+    
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
+
 
     @Column(name = "new_application_id", nullable = false)
     private Long newApplicationId;
@@ -45,9 +50,10 @@ public class CrmProcessedApplication {
     private String comments;
 
 
+
     public enum ApplicationProcessingStatus {
-        Received,
         Checking,
+        Received,
         Submitted
     }
 
@@ -59,6 +65,15 @@ public class CrmProcessedApplication {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
 

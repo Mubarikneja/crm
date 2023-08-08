@@ -6,13 +6,13 @@ import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "appraisal_approved_applications")
-public class AppraisalApprovedApplication {
+@Table(name = "appraisal_approved")
+public class AppraisalApproved {
 
-    public AppraisalApprovedApplication() {
+    public AppraisalApproved() {
     }
 
-    public AppraisalApprovedApplication(Long id, Long newApplicationId, LocalDateTime approvalDate, String approvedBy,
+    public AppraisalApproved(Long id, Long newApplicationId, LocalDateTime approvalDate, String approvedBy,
             BigDecimal recommendedLoanAmount) {
         this.id = id;
         this.newApplicationId = newApplicationId;

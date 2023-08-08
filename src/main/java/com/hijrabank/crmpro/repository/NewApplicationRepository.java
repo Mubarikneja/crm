@@ -7,6 +7,8 @@ import com.hijrabank.crmpro.entity.NewApplication;
 
 @Repository
 public interface NewApplicationRepository extends JpaRepository<NewApplication, Long> {
+
+    NewApplication findByfullNameIgnoreCase(String name);
     
 }
 

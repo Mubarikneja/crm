@@ -12,7 +12,7 @@ import com.hijrabank.crmpro.service.ApplicantService;
 
 
 @RestController
-@RequestMapping("/crm")
+@RequestMapping("/applicants")
 public class ApplicantController {
 
     
@@ -20,31 +20,37 @@ public class ApplicantController {
 
     @Autowired
     public ApplicantController(ApplicantService applicantService){
+
         this.applicantService = applicantService;
     }
 
-    @PostMapping("/applicants")
+    @PostMapping("/")
     public void saveApplicant(@RequestBody Applicant applicant){
+
          applicantService.saveApplicant(applicant);
     }
 
-    @GetMapping("/applicants")
+    @GetMapping("/")
     public List<Applicant> getApplicants(){
+
         return applicantService.getApplicants();
     }
 
-    @GetMapping("/applicants/{id}")
+    @GetMapping("/id/{id}")
     public Applicant getApplicant(@PathVariable("id") Long id){
+
         return applicantService.getApplicant(id);
     }
 
-    @GetMapping("applicants/name/{name}")
+    @GetMapping("/name/{name}")
     public Applicant getApplicantByName(@PathVariable("name") String name){
+
         return applicantService.getApplicantByName(name);
     }
 
-    @DeleteMapping("/applicants/{id}")
+    @DeleteMapping("/id/{id}")
     public void delApplicant(@PathVariable("id") Long id){
+        
         applicantService.delApplicant(id);
     }
 
