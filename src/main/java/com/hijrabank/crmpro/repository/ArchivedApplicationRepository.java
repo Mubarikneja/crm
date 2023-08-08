@@ -7,5 +7,9 @@ import com.hijrabank.crmpro.entity.ArchivedApplication;
 
 @Repository
 public interface ArchivedApplicationRepository extends JpaRepository<ArchivedApplication, Long> {
+
+    ArchivedApplication findByfullNameIgnoreCase(String name);
+
+    void deleteByfullName(String name);
     
 }

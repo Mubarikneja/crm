@@ -54,6 +54,12 @@ public class ApplicantController {
         applicantService.delApplicant(id);
     }
 
+    @DeleteMapping("/name/{name}")
+    public void delApplicantByName(@PathVariable("name") String name){
+
+        applicantService.delApplicantByName(name);
+    }
+
    
     
 }

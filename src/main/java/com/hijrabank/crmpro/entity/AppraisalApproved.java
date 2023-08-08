@@ -9,17 +9,20 @@ import jakarta.persistence.*;
 @Table(name = "appraisal_approved")
 public class AppraisalApproved {
 
-    public AppraisalApproved() {
-    }
-
-    public AppraisalApproved(Long id, Long newApplicationId, LocalDateTime approvalDate, String approvedBy,
-            BigDecimal recommendedLoanAmount) {
+    public AppraisalApproved(Long id, Long newApplicationId, String fullName, LocalDateTime approvalDate,
+            String approvedBy, BigDecimal recommendedLoanAmount) {
         this.id = id;
         this.newApplicationId = newApplicationId;
+        this.fullName = fullName;
         this.approvalDate = approvalDate;
         this.approvedBy = approvedBy;
         this.recommendedLoanAmount = recommendedLoanAmount;
     }
+
+    public AppraisalApproved() {
+    }
+
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +30,9 @@ public class AppraisalApproved {
 
     @Column(name = "new_application_id", nullable = false)
     private Long newApplicationId;
+
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Column(name = "approval_date", nullable = false)
     private LocalDateTime approvalDate;
@@ -75,6 +81,14 @@ public class AppraisalApproved {
 
     public void setRecommendedLoanAmount(BigDecimal recommendedLoanAmount) {
         this.recommendedLoanAmount = recommendedLoanAmount;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     

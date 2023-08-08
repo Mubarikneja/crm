@@ -8,17 +8,20 @@ import jakarta.persistence.*;
 @Table(name = "appraisal_processed")
 public class AppraisalProcessed {
 
+    public AppraisalProcessed(Long id, Long newApplicationId, String fullName, String processedBy,
+            ApplicationProgress progressOfApplication) {
+        this.id = id;
+        this.newApplicationId = newApplicationId;
+        this.fullName = fullName;
+        this.processedBy = processedBy;
+        this.progressOfApplication = progressOfApplication;
+    }
+
+
     public AppraisalProcessed() {
     }
 
 
-    public AppraisalProcessed(Long id, Long newApplicationId, String processedBy,
-            ApplicationProgress progressOfApplication) {
-        this.id = id;
-        this.newApplicationId = newApplicationId;
-        this.processedBy = processedBy;
-        this.progressOfApplication = progressOfApplication;
-    }
 
 
     @Id
@@ -27,6 +30,9 @@ public class AppraisalProcessed {
 
     @Column(name = "new_application_id", nullable = false)
     private Long newApplicationId;
+
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Column(name = "processed_by", nullable = false)
     private String processedBy;
@@ -81,6 +87,15 @@ public class AppraisalProcessed {
 
     public void setProgressOfApplication(ApplicationProgress progressOfApplication) {
         this.progressOfApplication = progressOfApplication;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     

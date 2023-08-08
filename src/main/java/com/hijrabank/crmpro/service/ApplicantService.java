@@ -38,9 +38,14 @@ public class ApplicantService {
     }
 
 
-    
     public Applicant getApplicantByName(String name) {
+
         return applicantRepository.findByfullNameIgnoreCase(name);
+    }
+
+    public void delApplicantByName(String name) {
+        
+        applicantRepository.deleteByfullName(name);
     }
   
 }

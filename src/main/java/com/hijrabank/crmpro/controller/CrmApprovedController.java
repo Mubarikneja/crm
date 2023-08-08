@@ -49,5 +49,11 @@ public class CrmApprovedController {
         
         crmApprovedService.delCrmApproved(id);
     }
+
+    @DeleteMapping("/name/{name}")
+    public void delCrmApprovedByName(@PathVariable("name") String name){
+
+        crmApprovedService.delCrmApprovedByName(name);
+    }
     
 }

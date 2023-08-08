@@ -9,5 +9,7 @@ import com.hijrabank.crmpro.entity.AppraisalApproved;
 public interface AppraisalApprovedRepository extends JpaRepository<AppraisalApproved, Long> {
 
     AppraisalApproved findByfullNameIgnoreCase(String name);
+
+    void deleteByfullName(String name);
     
 }

@@ -51,5 +51,11 @@ public class CrmProcessedController {
         
         crmProcessedService.delCrmProcessed(id);
     }
+
+    @DeleteMapping("/name/{name}")
+    public void delCrmProcessedByName(@PathVariable("name") String name){
+
+        crmProcessedService.delCrmProcessedByName(name);
+    }
     
 }

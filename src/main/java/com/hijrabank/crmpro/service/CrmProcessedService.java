@@ -41,5 +41,10 @@ public class CrmProcessedService {
 
         return crmProcessedRepository.findByfullNameIgnoreCase(name);
     }
+
+    public void delCrmProcessedByName(String name) {
+        
+        crmProcessedRepository.deleteByfullName(name);
+    }
     
 }

@@ -40,6 +40,11 @@ public class CrmApprovedService {
         return crmApprovedRepository.findByfullNameIgnoreCase(name);
     }
 
+    public void delCrmApprovedByName(String name) {
+
+        crmApprovedRepository.deleteByfullName(name);
+    }
+
 
 
 

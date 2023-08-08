@@ -9,15 +9,19 @@ import jakarta.persistence.*;
 @Table(name = "archived_applications")
 public class ArchivedApplication {
 
-    public ArchivedApplication() {
-    }
-
-    public ArchivedApplication(Long id, Long newApplicationId, LocalDateTime archivedDate, String archivedReason) {
+    public ArchivedApplication(Long id, Long newApplicationId, String fullName, LocalDateTime archivedDate,
+            String archivedReason) {
         this.id = id;
         this.newApplicationId = newApplicationId;
+        this.fullName = fullName;
         this.archivedDate = archivedDate;
         this.archivedReason = archivedReason;
     }
+
+    public ArchivedApplication() {
+    }
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +29,9 @@ public class ArchivedApplication {
 
     @Column(name = "new_application_id", nullable = false)
     private Long newApplicationId;
+
+    @Column(name = "full_name", nullable = false)
+    private String fullName;
 
     @Column(name = "archived_date", nullable = false)
     private LocalDateTime archivedDate;
@@ -62,6 +69,14 @@ public class ArchivedApplication {
 
     public void setArchivedReason(String archivedReason) {
         this.archivedReason = archivedReason;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     

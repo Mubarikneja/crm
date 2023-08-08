@@ -42,4 +42,9 @@ public class NewApplicationService {
         
         return newApplicationRepository.findByfullNameIgnoreCase(name);
     }
+
+    public void delNewApplicationByName(String name) {
+
+        newApplicationRepository.deleteByfullName(name);
+    }
 }

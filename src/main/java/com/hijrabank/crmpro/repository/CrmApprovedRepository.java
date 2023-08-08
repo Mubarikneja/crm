@@ -9,5 +9,7 @@ import com.hijrabank.crmpro.entity.CrmApproved;
 public interface CrmApprovedRepository extends JpaRepository<CrmApproved, Long> {
 
     CrmApproved findByfullNameIgnoreCase(String name);
+
+    void deleteByfullName(String name);
     
 }

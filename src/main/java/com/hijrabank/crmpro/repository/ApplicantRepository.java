@@ -9,5 +9,7 @@ import com.hijrabank.crmpro.entity.Applicant;
 public interface ApplicantRepository extends JpaRepository<Applicant, Long> {
 
     public Applicant findByfullNameIgnoreCase(String fullName);
+
+    public void deleteByfullName(String fullName);
     
 }

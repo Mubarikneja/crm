@@ -38,5 +38,10 @@ public class AppraisalApprovedService {
 
         return appraisalApprovedRepository.findByfullNameIgnoreCase(name);
     }
+
+    public void delAppraisalApprovedByName(String name) {
+
+        appraisalApprovedRepository.deleteByfullName(name);
+    }
     
 }

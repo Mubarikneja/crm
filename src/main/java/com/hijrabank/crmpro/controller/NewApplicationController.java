@@ -38,6 +38,12 @@ public class NewApplicationController {
     public void delNewApplication(@PathVariable("id") Long id){
         newApplicationService.delNewApplication(id);
     }
+
+    @DeleteMapping("/name/{name}")
+    public void delNewApplicationByName(@PathVariable("name") String name){
+
+        newApplicationService.delNewApplicationByName(name);
+    }
     
     
 }

@@ -10,7 +10,7 @@ import com.hijrabank.crmpro.service.AppraisalApprovedService;
 
 
 @RestController
-@RequestMapping("appraisal-approved")
+@RequestMapping("/appraisal-approved")
 public class AppraisalApprovedController {
 
     public final AppraisalApprovedService appraisalApprovedService;
@@ -49,6 +49,12 @@ public class AppraisalApprovedController {
     public void delAppraisalApproved(@PathVariable("id") Long id){
         
         appraisalApprovedService.delAppraisalApproved(id);
+    }
+
+    @DeleteMapping("/name/{name}")
+    public void delAppraisalApprovedByName(@PathVariable("name") String name){
+
+        appraisalApprovedService.delAppraisalApprovedByName(name);
     }
     
 }
